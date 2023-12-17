@@ -51,6 +51,8 @@
 		61786C392B2F0DFF00589E44 /* WorkoutDiary */ = {
 			isa = PBXGroup;
 			children = (
+				61786C492B2F12A400589E44 /* Model */,
+				61786C482B2F129F00589E44 /* View */,
 				61786C3A2B2F0DFF00589E44 /* WorkoutDiaryApp.swift */,
 				61786C3C2B2F0DFF00589E44 /* ContentView.swift */,
 				61786C3E2B2F0E0200589E44 /* Assets.xcassets */,
@@ -65,6 +67,20 @@
 				61786C412B2F0E0200589E44 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		61786C482B2F129F00589E44 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		61786C492B2F12A400589E44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
