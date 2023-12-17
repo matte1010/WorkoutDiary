@@ -9,7 +9,8 @@ import SwiftUI
 
 struct WorkoutView: View {
     var body: some View {
-        ExerciseView()
+        
+        ExerciseView2()
     }
 }
 

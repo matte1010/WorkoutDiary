@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    @State private var selectedTab = 1
     var body: some View {
-        TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
+        TabView(selection: $selectedTab) {
             WorkoutView().tabItem { Text("Workout") }.tag(1)
             Text("Tab Content 2").tabItem { Text("Statistics") }.tag(2)
             Text("Tab Content 3").tabItem { Text("Tab Label 3") }.tag(3)
