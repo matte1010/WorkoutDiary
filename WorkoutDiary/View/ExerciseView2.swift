@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-struct ExerciseSet: Identifiable, Equatable {
-    let id: UUID
-    var weight: String
-    var reps: String
-}
-
-struct Exercise: Identifiable, Equatable {
-    let id: UUID
-    var name: String
-    var sets: [ExerciseSet]
-}
-
 struct ExerciseView2: View {
     @State private var exercises: [Exercise] = [
         Exercise(id: UUID(), name: "Bench Press", sets: [

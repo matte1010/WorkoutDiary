@@ -7,49 +7,82 @@
 
 import SwiftUI
 
-struct ExercisesListView: View {
-    let workouts: [Exercise]
+struct Workout: Identifiable {
+    let id: UUID
+    var name: String
+    var exercises: [Exercise]
+}
 
-    var body: some View {
-        List {
-            ForEach(groupedWorkouts["Push"] ?? [], id: \.id) { exercise in
-                Section(header: Text(exercise.name)) {
-                    ForEach(exercise.sets) { _ in
-                        HStack {
-                            Text("Exercise: \(exercise.name)")
-                        }
-                        .listRowBackground(Color.gray)
-                    }
-                }
-            }
-        }
-        .background(LinearGradient(colors: [.blue, .black], startPoint: .topLeading, endPoint: .bottomTrailing)
-            .edgesIgnoringSafeArea(.all))
-        .scrollContentBackground(.hidden)
-        .navigationTitle("Exercise List")
+struct WorkoutListView: View {
+    @State private var workouts: [Workout] = [
+        Workout(id: UUID(), name: "Push Workout", exercises: [
+            Exercise(id: UUID(), name: "Bench Press", sets: [
+                ExerciseSet(id: UUID(), weight: "100", reps: "10"),
+                ExerciseSet(id: UUID(), weight: "50", reps: "15"),
+            ]),
+            Exercise(id: UUID(), name: "Dips", sets: [
+                ExerciseSet(id: UUID(), weight: "100", reps: "10"),
+                ExerciseSet(id: UUID(), weight: "50", reps: "15"),
+            ]),
+            // Add more exercises if needed
+        ]),
+        
+        Workout(id: UUID(), name: "Pull Workout", exercises: [
+            Exercise(id: UUID(), name: "Pullups", sets: [
+                ExerciseSet(id: UUID(), weight: "100", reps: "10"),
+                ExerciseSet(id: UUID(), weight: "50", reps: "15"),
+            ]),
+            Exercise(id: UUID(), name: "Deadlifts", sets: [
+                ExerciseSet(id: UUID(), weight: "100", reps: "10"),
+                ExerciseSet(id: UUID(), weight: "50", reps: "15"),
+            ]),
+            // Add more exercises if needed
+        ]),
+        // Add more workouts if needed
+    ]
+
+    // Extract workout names from the array
+    var workoutNames: [String] {
+        workouts.map { $0.name }
     }
 
-    var groupedWorkouts: [String: [Exercise]] {
-        Dictionary(grouping: workouts, by: { $0.name })
+    var body: some View {
+        NavigationView {
+            List(workoutNames, id: \.self) { workoutName in
+                NavigationLink(destination: WorkoutDetail(workout: workouts.first { $0.name == workoutName })) {
+                    Text(workoutName)
+                }
+                .listRowBackground(Color.gray)
+            }
+            .background(LinearGradient(colors: [.blue, .black], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .edgesIgnoringSafeArea(.all))
+            .scrollContentBackground(.hidden)
+            .navigationTitle("Workout List")
+        }
     }
 }
 
-struct ExercisesListView_Previews: PreviewProvider {
+struct WorkoutDetail: View {
+    var workout: Workout?
+
+    var body: some View {
+        if let workout = workout {
+            List(workout.exercises) { exercise in
+                Text("Exercise: \(exercise.name)")
+                    .listRowBackground(Color.gray)
+                // Display other details or customize as needed
+            }
+            .background(LinearGradient(colors: [.blue, .black], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .edgesIgnoringSafeArea(.all))
+            .scrollContentBackground(.hidden)
+            .navigationTitle(workout.name)
+        }
+    }
+}
+
+struct WorkoutListView_Previews: PreviewProvider {
     static var previews: some View {
-        ExercisesListView(workouts: [
-            Exercise(id: UUID(), name: "Push workout", sets: [
-                ExerciseSet(id: UUID(), weight: "100", reps: "10"),
-                ExerciseSet(id: UUID(), weight: "120", reps: "8"),
-            ]),
-            Exercise(id: UUID(), name: "Push workout", sets: [
-                ExerciseSet(id: UUID(), weight: "80", reps: "12"),
-                ExerciseSet(id: UUID(), weight: "100", reps: "10"),
-            ]),
-            Exercise(id: UUID(), name: "Pull workout", sets: [
-                ExerciseSet(id: UUID(), weight: "90", reps: "12"),
-                ExerciseSet(id: UUID(), weight: "110", reps: "10"),
-            ])
-        ])
+        WorkoutListView()
     }
 }
 
