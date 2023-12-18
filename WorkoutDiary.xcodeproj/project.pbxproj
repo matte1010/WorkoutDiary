@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		186379432B3089F900A1E74E /* NinjaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186379422B3089F900A1E74E /* NinjaAPI.swift */; };
+		186379462B308D8E00A1E74E /* WorkOutCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 186379442B308D8E00A1E74E /* WorkOutCoreData.xcdatamodeld */; };
 		61786C3B2B2F0DFF00589E44 /* WorkoutDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61786C3A2B2F0DFF00589E44 /* WorkoutDiaryApp.swift */; };
 		61786C3D2B2F0DFF00589E44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61786C3C2B2F0DFF00589E44 /* ContentView.swift */; };
 		61786C3F2B2F0E0200589E44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61786C3E2B2F0E0200589E44 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		186379422B3089F900A1E74E /* NinjaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NinjaAPI.swift; sourceTree = "<group>"; };
+		186379452B308D8E00A1E74E /* WorkOutCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorkOutCoreData.xcdatamodel; sourceTree = "<group>"; };
 		61786C372B2F0DFF00589E44 /* WorkoutDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61786C3A2B2F0DFF00589E44 /* WorkoutDiaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDiaryApp.swift; sourceTree = "<group>"; };
 		61786C3C2B2F0DFF00589E44 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 				61786C482B2F129F00589E44 /* View */,
 				61786C3A2B2F0DFF00589E44 /* WorkoutDiaryApp.swift */,
 				61786C3C2B2F0DFF00589E44 /* ContentView.swift */,
+				186379442B308D8E00A1E74E /* WorkOutCoreData.xcdatamodeld */,
 				61786C3E2B2F0E0200589E44 /* Assets.xcassets */,
 				61786C402B2F0E0200589E44 /* Preview Content */,
 			);
@@ -97,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				61786C4C2B2F139E00589E44 /* Exercises.swift */,
+				186379422B3089F900A1E74E /* NinjaAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,12 +178,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				61786C532B2F29FE00589E44 /* ExerciseView.swift in Sources */,
+				186379432B3089F900A1E74E /* NinjaAPI.swift in Sources */,
 				61786C3D2B2F0DFF00589E44 /* ContentView.swift in Sources */,
 				61786C4D2B2F139E00589E44 /* Exercises.swift in Sources */,
 				61786C3B2B2F0DFF00589E44 /* WorkoutDiaryApp.swift in Sources */,
 				61786C572B30567900589E44 /* WorkoutListView.swift in Sources */,
 				61786C4B2B2F134400589E44 /* HomeScreen.swift in Sources */,
 				61786C512B2F29EE00589E44 /* WorkoutView.swift in Sources */,
+				186379462B308D8E00A1E74E /* WorkOutCoreData.xcdatamodeld in Sources */,
 				61786C552B2F6C1200589E44 /* ExerciseView2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +394,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		186379442B308D8E00A1E74E /* WorkOutCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				186379452B308D8E00A1E74E /* WorkOutCoreData.xcdatamodel */,
+			);
+			currentVersion = 186379452B308D8E00A1E74E /* WorkOutCoreData.xcdatamodel */;
+			path = WorkOutCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 61786C2F2B2F0DFF00589E44 /* Project object */;
 }

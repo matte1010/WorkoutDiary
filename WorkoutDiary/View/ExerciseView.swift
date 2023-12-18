@@ -19,6 +19,7 @@ struct ExerciseView: View {
                 Section(header: Text(exercise)
                     .font(.headline)
                     .fontWeight(.bold)
+                    .foregroundColor(.white)
                 ) {
                     ForEach(exerciseEntries[exercise] ?? [], id: \.self) { exerciseEntry in
                         HStack {

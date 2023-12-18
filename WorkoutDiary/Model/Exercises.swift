@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Exercises {
-    
-    
-    
-}
+/*struct Exercises: Decodable
+{
+    var exerciseName: String
+    var muscle: String
+}*/
