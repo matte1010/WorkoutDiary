@@ -20,7 +20,7 @@ struct TestView: View {
     
     var body: some View {
         Button("Button") {
-            getExercises()
+            //getExercises()
         }
     }
 }

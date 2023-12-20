@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180C7F8B2B33762C003760EF /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C7F8A2B33762C003760EF /* CoreDataManager.swift */; };
 		186379432B3089F900A1E74E /* NinjaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186379422B3089F900A1E74E /* NinjaAPI.swift */; };
 		186379462B308D8E00A1E74E /* WorkOutCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 186379442B308D8E00A1E74E /* WorkOutCoreData.xcdatamodeld */; };
 		61786C3B2B2F0DFF00589E44 /* WorkoutDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61786C3A2B2F0DFF00589E44 /* WorkoutDiaryApp.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		180C7F8A2B33762C003760EF /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		186379422B3089F900A1E74E /* NinjaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NinjaAPI.swift; sourceTree = "<group>"; };
 		186379452B308D8E00A1E74E /* WorkOutCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorkOutCoreData.xcdatamodel; sourceTree = "<group>"; };
 		61786C372B2F0DFF00589E44 /* WorkoutDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +108,7 @@
 			children = (
 				61786C4C2B2F139E00589E44 /* Exercises.swift */,
 				186379422B3089F900A1E74E /* NinjaAPI.swift */,
+				180C7F8A2B33762C003760EF /* CoreDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				61786C3D2B2F0DFF00589E44 /* ContentView.swift in Sources */,
 				61786C4D2B2F139E00589E44 /* Exercises.swift in Sources */,
 				61786C3B2B2F0DFF00589E44 /* WorkoutDiaryApp.swift in Sources */,
+				180C7F8B2B33762C003760EF /* CoreDataManager.swift in Sources */,
 				61786C572B30567900589E44 /* WorkoutListView.swift in Sources */,
 				61786C4B2B2F134400589E44 /* HomeScreen.swift in Sources */,
 				61786C512B2F29EE00589E44 /* WorkoutView.swift in Sources */,

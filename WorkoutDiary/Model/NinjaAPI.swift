@@ -7,10 +7,7 @@
 
 import Foundation
 import CoreData
-
-class NinjaAPI: ObservableObject 
-{
-
+class NinjaAPI: ObservableObject {
     @Published var exercises = [Exercises]()
 
     func loadData(completion: @escaping ([Exercises]) -> ()) {
@@ -32,6 +29,15 @@ class NinjaAPI: ObservableObject
             do {
                 let exercises = try JSONDecoder().decode([Exercises].self, from: data!)
                 print(exercises)
+
+                // Store data in Core Data
+                let coreDataManager = CoreDataManager()
+
+                for exercise in exercises {
+                    let workoutCoreData = WorkOutCoreData(exercise: exercise.name, muscle: exercise.muscle)
+                    coreDataManager.saveWorkoutToCoreData(workoutCoreData: workoutCoreData)
+                }
+
                 DispatchQueue.main.async {
                     completion(exercises)
                 }
@@ -44,7 +50,6 @@ class NinjaAPI: ObservableObject
             }
         }.resume()
     }
-
 }
 
 struct Exercises: Decodable {
@@ -56,8 +61,3 @@ struct Exercises: Decodable {
     var instructions: String
 }
 
-struct CoreDataExercises: Codable
-{
-    var exerciseName: String
-    var muscle: String
-}
