@@ -13,7 +13,7 @@ struct TestView: View {
     @State var query: String = ""
     
     func getExercises() {
-        NinjaAPI().loadData { (exercises) in
+        NinjaAPI().loadData(muscle: "biceps") { (exercises) in
             self.exercises = exercises
         }
     }

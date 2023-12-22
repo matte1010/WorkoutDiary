@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    @StateObject var viewModel = ViewModel()
     
     @State private var selectedTab = 1
     var body: some View {
         TabView(selection: $selectedTab) {
-            WorkoutView().tabItem {
+            WorkoutView(viewModel: viewModel).tabItem {
                 Image(systemName: "dumbbell").font(.title)
                 Text("Workout")
             }
@@ -22,7 +23,7 @@ struct HomeScreen: View {
                 Text("Statistics")
             }
             .tag(2)
-            WorkoutListView().tabItem {
+            WorkoutListView(viewModel: viewModel).tabItem {
                 Image(systemName: "list.clipboard").font(.title)
                 Text("Workouts")
                     .font(.title)

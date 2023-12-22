@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct WorkoutView: View {
-    @StateObject private var viewModel = ViewModel()
-
+    @StateObject var viewModel: ViewModel
+    @State private var selectedMuscleGroup = "Biceps"
     var body: some View {
         NavigationView {
             VStack {
+                
                 List {
                     ForEach(viewModel.exercises.indices, id: \.self) { index in
                         Section(header: Text(viewModel.exercises[index].name).font(.headline)
@@ -54,11 +55,24 @@ struct WorkoutView: View {
                 .scrollContentBackground(.hidden)
             }
             .navigationTitle("Exercise list")
+            .navigationBarItems(trailing:
+            HStack {
+                Text(selectedMuscleGroup)
+                Menu {
+                    Picker("Choose muscle", selection: $selectedMuscleGroup) {
+                        Text("Biceps").tag("Biceps")
+                        Text("Chest").tag("Chest")
+                    }
+                } label: {
+                    Image(systemName: "chevron.down")
+                }
+            }
+            )
         }
         .scrollDismissesKeyboard(.immediately)
     }
 }
 
 #Preview {
-    WorkoutView()
+    WorkoutView(viewModel: ViewModel())
 }

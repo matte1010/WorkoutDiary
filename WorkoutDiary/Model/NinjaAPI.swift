@@ -11,8 +11,8 @@ class NinjaAPI: ObservableObject {
     @Published var exercises = [ExercisesAPI]()
     @Published var exercises2 = [Exercise]()
 
-    func loadData(completion: @escaping ([ExercisesAPI]) -> ()) {
-        let query = "biceps".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    func loadData(muscle: String, completion: @escaping ([ExercisesAPI]) -> ()) {
+        let query = muscle.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: "https://api.api-ninjas.com/v1/exercises?muscle=" + query!)!
         var request = URLRequest(url: url)
         request.setValue("zMoGk9CWn1sKaLAHYDKrzA==Yt5VgZpBgYNbebEx", forHTTPHeaderField: "X-Api-Key")
