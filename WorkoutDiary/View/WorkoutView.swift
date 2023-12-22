@@ -7,51 +7,33 @@
 
 import SwiftUI
 
-struct ExerciseSet: Identifiable, Equatable {
-    let id: UUID
-    var weight: String
-    var reps: String
-}
-
-struct Exercise: Identifiable, Equatable {
-    let id: UUID
-    var name: String
-    var sets: [ExerciseSet]
-}
-
 struct WorkoutView: View {
-    @State private var exercises: [Exercise] = [
-        Exercise(id: UUID(), name: "Bench Press", sets: [
-            ExerciseSet(id: UUID(), weight: "", reps: ""),
-        ]),
-        Exercise(id: UUID(), name: "Dips", sets: [
-            ExerciseSet(id: UUID(), weight: "", reps: ""),
-        ])
-    ]
+    @StateObject private var viewModel = ViewModel()
 
     var body: some View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(exercises.indices, id: \.self) { index in
-                        Section(header: Text(exercises[index].name)) {
-                            ForEach(exercises[index].sets.indices, id: \.self) { setIndex in
+                    ForEach(viewModel.exercises.indices, id: \.self) { index in
+                        Section(header: Text(viewModel.exercises[index].name).font(.headline)
+                            .bold()) {
+                            ForEach(viewModel.exercises[index].sets.indices, id: \.self) { setIndex in
                                 HStack {
-                                    TextField("Weight", text: $exercises[index].sets[setIndex].weight)
+                                    TextField("Weight", text: $viewModel.exercises[index].sets[setIndex].weight)
                                         .keyboardType(.numberPad)
-                                    
+
                                     Text("kg")
                                     Spacer()
-                                    TextField("Reps", text: $exercises[index].sets[setIndex].reps)
+                                    TextField("Reps", text: $viewModel.exercises[index].sets[setIndex].reps)
                                         .keyboardType(.numberPad)
-                                    
+
                                     Text("reps")
                                 }
                                 .listRowBackground(Color.gray)
                                 .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                                     Button(role: .destructive) {
                                         // Delete the set
-                                        exercises[index].sets.remove(at: setIndex)
+                                        viewModel.exercises[index].sets.remove(at: setIndex)
                                     } label: {
                                         Label("Delete", systemImage: "trash")
                                     }
@@ -59,7 +41,7 @@ struct WorkoutView: View {
                             }
                             Button(action: {
                                 // Add a new set to the current exercise
-                                exercises[index].sets.append(ExerciseSet(id: UUID(), weight: "", reps: ""))
+                                viewModel.exercises[index].sets.append(ExerciseSet(id: UUID(), weight: "", reps: ""))
                             }) {
                                 Text("Add Set")
                             }
@@ -67,14 +49,11 @@ struct WorkoutView: View {
                         }
                     }
                 }
-                .background(LinearGradient(colors: [.blue, .black], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .background(LinearGradient(colors: [.blue, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
                     .edgesIgnoringSafeArea(.all))
                 .scrollContentBackground(.hidden)
-                
             }
-            
             .navigationTitle("Exercise list")
-            
         }
         .scrollDismissesKeyboard(.immediately)
     }

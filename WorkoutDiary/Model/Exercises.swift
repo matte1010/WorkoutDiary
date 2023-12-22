@@ -7,8 +7,15 @@
 
 import Foundation
 
-/*struct Exercises: Decodable
-{
-    var exerciseName: String
-    var muscle: String
-}*/
+
+struct ExerciseSet: Identifiable, Equatable {
+    let id: UUID
+    var weight: String
+    var reps: String
+}
+
+struct Exercise: Identifiable, Equatable {
+    let id: UUID
+    var name: String
+    var sets: [ExerciseSet]
+}

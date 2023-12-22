@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TestView: View {
 
-    @State var exercises = [Exercises]()
+    @State var exercises = [ExercisesAPI]()
     @State var query: String = ""
     
     func getExercises() {
