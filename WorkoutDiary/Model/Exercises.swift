@@ -7,8 +7,8 @@
 
 import Foundation
 
-/*struct Exercises: Decodable
+struct Exercises
 {
     var exerciseName: String
     var muscle: String
-}*/
+}

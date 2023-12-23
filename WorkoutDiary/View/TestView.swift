@@ -9,18 +9,25 @@ import SwiftUI
 
 struct TestView: View {
 
-    @State var exercises = [Exercises]()
+    @State var exercises = [ExercisesAPI]()
     @State var query: String = ""
+    @ObservedObject var coreData = CoreDataManager()
+    @ObservedObject var ninjaAPI = NinjaAPI()
+    var muscle = "Triceps"
     
     func getExercises() {
         NinjaAPI().loadData { (exercises) in
             self.exercises = exercises
         }
     }
-    
+
     var body: some View {
         Button("Button") {
             //getExercises()
+            //print(exercises)
+            coreData.fetchWorkouts()
+            //coreData.deleteAllData()
+            
         }
     }
 }

@@ -10,20 +10,21 @@ import CoreData
 
 class CoreDataManager: ObservableObject {
     
+    @Published var workouts: [WorkOutEntity] = []
+
     let persistentContainer: NSPersistentContainer
 
-        init() {
-            persistentContainer = NSPersistentContainer(name: "WorkOutCoreData")
-            setupPersistentContainer()
-        }
-
+    init() {
+        persistentContainer = NSPersistentContainer(name: "WorkOutCoreData")
+        setupPersistentContainer()
+    }
 
     func saveWorkoutToCoreData(workoutCoreData: WorkOutCoreData) {
         let context = persistentContainer.viewContext
         let workout = WorkOutEntity(context: context)
 
-        workout.exercise = String(workoutCoreData.exercise)
-        workout.muscle = String(workoutCoreData.muscle)
+        workout.exercise = workoutCoreData.exercise
+        workout.muscle = workoutCoreData.muscle
 
         do {
             try context.save()
@@ -32,16 +33,22 @@ class CoreDataManager: ObservableObject {
         }
     }
 
-    func fetchWorkoutsFromCoreData() -> [WorkOutEntity] {
+    func fetchWorkouts() {
         let context = persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<WorkOutEntity> = WorkOutEntity.fetchRequest()
 
+
         do {
-            let workouts = try context.fetch(fetchRequest)
-            return workouts
+            workouts = try context.fetch(fetchRequest)
+               for workout in workouts {
+                   // Accessing attributes to fire faults and load data
+                   _ = workout.exercise
+                   _ = workout.muscle
+                   print(workout)
+               }
         } catch {
             print("Failed to fetch workouts from Core Data: \(error)")
-            return []
+            workouts = []
         }
     }
     
@@ -53,9 +60,28 @@ class CoreDataManager: ObservableObject {
         }
     }
     
+   /* func deleteAllData() {
+           let context = persistentContainer.viewContext
+
+           // Create a fetch request for all entities
+           let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "WorkOutEntity")
+
+           // Create a batch delete request
+           let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+           do {
+               // Execute the batch delete request
+               try context.execute(batchDeleteRequest)
+
+               // Save the changes to persist the deletion
+               try context.save()
+           } catch {
+               print("Failed to delete all data from Core Data: \(error)")
+           }
+       }*/
 }
 
-struct  WorkOutCoreData {
+struct WorkOutCoreData {
     var exercise: String
     var muscle: String
 }
