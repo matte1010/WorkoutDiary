@@ -10,9 +10,10 @@ import CoreData
 
 class NinjaAPI: ObservableObject {
     @Published var exercises = [ExercisesAPI]()
+    @Published var exercises2 = [Exercise]()
 
-    func loadData(completion: @escaping ([ExercisesAPI]) -> ()) {
-        let query = "triceps".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    func loadData(muscle: String, completion: @escaping ([ExercisesAPI]) -> ()) {
+        let query = muscle.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: "https://api.api-ninjas.com/v1/exercises?muscle=" + query!)!
         var request = URLRequest(url: url)
         request.setValue("zMoGk9CWn1sKaLAHYDKrzA==Yt5VgZpBgYNbebEx", forHTTPHeaderField: "X-Api-Key")
@@ -29,17 +30,17 @@ class NinjaAPI: ObservableObject {
 
             do {
                 let exercises = try JSONDecoder().decode([ExercisesAPI].self, from: data!)
-                print(exercises)
+                //print(exercises)
 
                 // Store data in Core Data
-                let coreDataManager = CoreDataManager()
-
-                for exercise in exercises {
-                    let workoutCoreData = WorkOutCoreData(exercise: exercise.name, muscle: exercise.muscle)
-                    coreDataManager.saveWorkoutToCoreData(workoutCoreData: workoutCoreData)
-                }
-
+                //let coreDataManager = CoreDataManager()
+                
                 DispatchQueue.main.async {
+                    for exercise in exercises {
+                        self.exercises2.append(Exercise(id: UUID(), name: exercise.name, sets: [ExerciseSet(id: UUID(), weight: "", reps: "")]))
+                    }
+                    print(self.exercises2)
+
                     completion(exercises)
                 }
             } catch {

@@ -16,7 +16,7 @@ struct TestView: View {
     var muscle = "Triceps"
     
     func getExercises() {
-        NinjaAPI().loadData { (exercises) in
+        NinjaAPI().loadData(muscle: "biceps") { (exercises) in
             self.exercises = exercises
         }
     }

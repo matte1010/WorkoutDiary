@@ -21,6 +21,7 @@
 		61786C552B2F6C1200589E44 /* ExerciseView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61786C542B2F6C1200589E44 /* ExerciseView2.swift */; };
 		61786C572B30567900589E44 /* WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61786C562B30567900589E44 /* WorkoutListView.swift */; };
 		61786C592B30B1BD00589E44 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61786C582B30B1BD00589E44 /* TestView.swift */; };
+		61A53D732B346C84006A75AF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A53D722B346C84006A75AF /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		61786C542B2F6C1200589E44 /* ExerciseView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView2.swift; sourceTree = "<group>"; };
 		61786C562B30567900589E44 /* WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListView.swift; sourceTree = "<group>"; };
 		61786C582B30B1BD00589E44 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		61A53D722B346C84006A75AF /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				186379442B308D8E00A1E74E /* WorkOutCoreData.xcdatamodeld */,
 				61786C3E2B2F0E0200589E44 /* Assets.xcassets */,
 				61786C402B2F0E0200589E44 /* Preview Content */,
+				61A53D722B346C84006A75AF /* ViewModel.swift */,
 			);
 			path = WorkoutDiary;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				61786C3D2B2F0DFF00589E44 /* ContentView.swift in Sources */,
 				61786C4D2B2F139E00589E44 /* Exercises.swift in Sources */,
 				61786C3B2B2F0DFF00589E44 /* WorkoutDiaryApp.swift in Sources */,
+				61A53D732B346C84006A75AF /* ViewModel.swift in Sources */,
 				180C7F8B2B33762C003760EF /* CoreDataManager.swift in Sources */,
 				61786C572B30567900589E44 /* WorkoutListView.swift in Sources */,
 				61786C4B2B2F134400589E44 /* HomeScreen.swift in Sources */,
