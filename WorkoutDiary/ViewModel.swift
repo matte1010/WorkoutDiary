@@ -12,10 +12,12 @@ class ViewModel : ObservableObject {
     var exercisesAPI = [ExercisesAPI]()
     @Published var exercises = [Exercise]()
     @Published var muscleGroups = [MuscleGroup]()
+    @Published var savedWorkouts = [Workout]()
     
     init() {
         getExercises(forMuscle: "biceps")
         getExercises(forMuscle: "chest")
+        //savedWorkouts = []
     }
     
     func getExercises(forMuscle muscle: String) {
@@ -31,7 +33,7 @@ class ViewModel : ObservableObject {
                 }
 
                 // Create a single MuscleGroup for the muscle and add the corresponding exercises
-                let muscleGroup = MuscleGroup(name: muscle, exercises: muscleGroupExercises)
+                let muscleGroup = MuscleGroup(id: UUID(), name: muscle, exercises: muscleGroupExercises)
                 self.muscleGroups.append(muscleGroup)
 
                 // Now the exercises array and muscleGroups array are populated correctly
@@ -40,6 +42,13 @@ class ViewModel : ObservableObject {
             }
             // At this point, exercisesAPI may not be populated yet, so printing it here may show an empty array
             print(exercisesAPI)
-        }
+    }
+    
+    func saveWorkout(workout: Workout) {
+        // Add to published array
+        savedWorkouts.append(workout)
+        print(savedWorkouts)
+
+    }
     
 }

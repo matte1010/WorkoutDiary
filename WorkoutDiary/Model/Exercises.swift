@@ -7,19 +7,26 @@
 
 import Foundation
 
-struct MuscleGroup: Hashable {
-    let name: String
+struct Workout: Hashable, Equatable, Identifiable {
+    var id: UUID
+    var workoutName: String
+    var exercises: [Exercise]
+}
+
+struct MuscleGroup: Hashable, Identifiable {
+    var id: UUID
+    var name: String
     var exercises: [Exercise]
 }
 
 struct ExerciseSet: Identifiable, Equatable, Hashable {
-    let id: UUID
+    var id: UUID
     var weight: String
     var reps: String
 }
 
 struct Exercise: Identifiable, Equatable, Hashable {
-    let id: UUID
+    var id: UUID
     var name: String
     var sets: [ExerciseSet]
 }
