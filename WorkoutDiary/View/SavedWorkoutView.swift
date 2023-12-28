@@ -10,6 +10,7 @@ import SwiftUI
 struct SavedWorkoutView: View {
     @StateObject var viewModel: ViewModel
     var selectedWorkoutIndex: Int
+    @State private var isShowingTimer = false
 
     var body: some View {
         VStack {
@@ -69,6 +70,19 @@ struct SavedWorkoutView: View {
             .scrollContentBackground(.hidden)
         }
         .navigationTitle("Exercise list")
+        .navigationBarItems(trailing:
+        HStack {
+            Button(action: {
+                isShowingTimer = true
+            }) {
+                Image(systemName: "clock")
+                    .bold()
+            }
+            .sheet(isPresented: $isShowingTimer) {
+                TimerView()
+            }
+        }
+        )
         .scrollDismissesKeyboard(.immediately)
     }
     
@@ -76,9 +90,27 @@ struct SavedWorkoutView: View {
 
 struct SavedWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        SavedWorkoutView(viewModel: ViewModel(), selectedWorkoutIndex: 0)
+        let viewModel = ViewModel()
+
+        // Create some sample workout data for preview
+        let sampleWorkout = Workout(
+            id: UUID(),
+            workoutName: "Sample Workout",
+            exercises: [
+                Exercise(
+                    id: UUID(),
+                    name: "Sample Exercise",
+                    sets: [ExerciseSet(id: UUID(), weight: "50", reps: "10")]
+                )
+            ]
+        )
+
+        viewModel.savedWorkouts.append(sampleWorkout)
+
+        return SavedWorkoutView(viewModel: viewModel, selectedWorkoutIndex: 0)
     }
 }
+
 
 
 extension Collection {

@@ -54,6 +54,7 @@ class NinjaAPI: ObservableObject {
     }
 }
 
+//Struct used to decode the data from NinjaAPI
 struct ExercisesAPI: Decodable {
     var name: String
     var type: String
