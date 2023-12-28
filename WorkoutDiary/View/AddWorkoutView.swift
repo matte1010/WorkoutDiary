@@ -14,11 +14,12 @@ struct AddWorkoutView: View {
     @StateObject var viewModel: ViewModel
     
     @State private var selectedMuscleGroup: MuscleGroup? = nil
-        
+    
     @State private var selectedExercise: Exercise? = nil
-        @State private var selectedExercises = Set<Exercise>()
-        
-        var body: some View {
+    @State private var selectedExercises = Set<Exercise>()
+    
+    var body: some View {
+        NavigationView {
             Form {
                 
                 Section {
@@ -30,29 +31,37 @@ struct AddWorkoutView: View {
                     ForEach(viewModel.muscleGroups) { muscleGroup in
                         
                         Section(header:
-                            Text(muscleGroup.name)
-                                .onTapGesture {
-                                    self.selectedMuscleGroup = muscleGroup
-                                }
+                            HStack {
+                                Text(muscleGroup.name)
+                                Spacer()
+                                Image(systemName: self.selectedMuscleGroup?.id == muscleGroup.id ? "chevron.down" : "chevron.right")
+                            }
+                            .onTapGesture {
+                                self.selectedMuscleGroup = (self.selectedMuscleGroup == muscleGroup) ? nil : muscleGroup
+                            }
                         ) {
                             
                             if self.selectedMuscleGroup?.id == muscleGroup.id {
                                 
                                 ForEach(muscleGroup.exercises) { exercise in
                                     
-                                    Button(action: {
-                                        self.selectedExercise = exercise
-                                    }) {
-                                        Text(exercise.name)
+                                    NavigationLink(destination: EmptyView()) {
+                                        HStack {
+                                            Text(exercise.name)
+                                            Spacer()
+                                            if selectedExercises.contains(exercise) {
+                                                Image(systemName: "checkmark")
+                                            }
+                                        }
+                                    }
+                                    .onTapGesture {
+                                        if selectedExercises.contains(exercise) {
+                                            selectedExercises.remove(exercise)
+                                        } else {
+                                            selectedExercises.insert(exercise)
+                                        }
                                     }
                                     
-                                }
-                                
-                                Button("Add Exercise") {
-                                    if let exercise = self.selectedExercise {
-                                        self.selectedExercises.insert(exercise)
-                                        self.selectedExercise = nil
-                                    }
                                 }
                                 
                             }
@@ -64,9 +73,9 @@ struct AddWorkoutView: View {
                 }
                 
                 Section(header: Text("Added Exercises")) {
-                   ForEach(Array(selectedExercises)) { exercise in
-                      Text(exercise.name)
-                   }
+                    ForEach(Array(selectedExercises)) { exercise in
+                        Text(exercise.name)
+                    }
                 }
                 
                 Section {
@@ -80,9 +89,16 @@ struct AddWorkoutView: View {
                 }
                 
             }
+            .background(LinearGradient(colors: [.blue, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .edgesIgnoringSafeArea(.all))
+            .scrollContentBackground(.hidden)
+            .navigationTitle("Add Workout")
         }
+    }
 }
 
-#Preview {
-    AddWorkoutView(viewModel: ViewModel())
+struct AddWorkoutView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddWorkoutView(viewModel: ViewModel())
+    }
 }

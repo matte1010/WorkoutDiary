@@ -17,12 +17,11 @@ struct WorkoutListView: View {
                 NavigationLink(destination: WorkoutDetail(muscleGroup: group)) {
                     Text(group.name)
                 }
-                .listRowBackground(Color.gray)
             }
             .background(LinearGradient(colors: [.blue, .black], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all))
             .scrollContentBackground(.hidden)
-            .navigationTitle("Workout List")
+            .navigationTitle("Exercise List")
         }
     }
 }

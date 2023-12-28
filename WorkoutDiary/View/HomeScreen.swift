@@ -13,7 +13,7 @@ struct HomeScreen: View {
     @State private var selectedTab = 1
     var body: some View {
         TabView(selection: $selectedTab) {
-            WorkoutView(viewModel: viewModel).tabItem {
+            WorkoutPickerView(viewModel: viewModel).tabItem {
                 Image(systemName: "dumbbell").font(.title)
                 Text("Workout")
             }
@@ -23,13 +23,13 @@ struct HomeScreen: View {
                 Text("Statistics")
             }
             .tag(2)
-            WorkoutPickerView(viewModel: viewModel).tabItem {
+            WorkoutListView(viewModel: viewModel).tabItem {
                 Image(systemName: "list.clipboard").font(.title)
-                Text("Workouts")
+                Text("Exercises")
                     .font(.title)
             }
             .tag(3)
-            WorkoutListView(viewModel: viewModel).tabItem {
+            Text("Settings").tabItem {
                 Image(systemName: "gear")
                 Text("Settings")
                     .font(.title)
