@@ -16,13 +16,20 @@ struct WorkoutPickerView: View {
             VStack {
                 List {
                     ForEach(viewModel.savedWorkouts.indices, id: \.self) { index in
-                        NavigationLink(destination: SavedWorkoutView(viewModel: viewModel, selectedWorkoutIndex: index)) {
+                        NavigationLink(
+                            destination: StartWorkoutView(workout: viewModel.savedWorkouts[index], viewModel: viewModel),
+                            tag: index,
+                            selection: $selectedWorkoutIndex
+                        ) {
                             Text(viewModel.savedWorkouts[index].workoutName)
+                                .onTapGesture {
+                                    selectedWorkoutIndex = index
+                                }
                         }
                     }
                 }
                 .background(LinearGradient(colors: [.blue, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .edgesIgnoringSafeArea(.all))
+                .edgesIgnoringSafeArea(.all))
                 .scrollContentBackground(.hidden)
             }
             .navigationTitle("Pick a Workout")

@@ -8,11 +8,45 @@
 import SwiftUI
 
 struct StartedWorkoutsView: View {
+    
+    @ObservedObject var viewModel: ViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        NavigationView {
+
+            List {
+
+                ForEach(viewModel.startedWorkouts) { startedWorkout in
+
+                    Section(header: Text("Started on \(startedWorkout.date)")) {
+
+                        Text(startedWorkout.workout.workoutName)
+                            .font(.headline)
+
+                        ForEach(startedWorkout.workout.exercises) { exercise in
+
+                            HStack {
+                                Text(exercise.name)
+                                Spacer()
+                                Text("\(exercise.sets.count) sets")
+                            }
+
+                        }
+
+                    }
+
+                }
+                
+            }
+            .navigationTitle("Started Workouts")
+            
+        }
+        
     }
+    
 }
 
 #Preview {
-    StartedWorkoutsView()
+    StartedWorkoutsView(viewModel: ViewModel())
 }

@@ -25,6 +25,9 @@
 		61786C552B2F6C1200589E44 /* ExerciseView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61786C542B2F6C1200589E44 /* ExerciseView2.swift */; };
 		61786C572B30567900589E44 /* WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61786C562B30567900589E44 /* WorkoutListView.swift */; };
 		61786C592B30B1BD00589E44 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61786C582B30B1BD00589E44 /* TestView.swift */; };
+		617EA6962B402304003C6585 /* StartedWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617EA6952B402304003C6585 /* StartedWorkoutView.swift */; };
+		6192A5E42B3F59450097F07F /* StartedWorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192A5E32B3F59450097F07F /* StartedWorkoutsView.swift */; };
+		6192A5E62B3F675C0097F07F /* StartWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192A5E52B3F675C0097F07F /* StartWorkoutView.swift */; };
 		61A53D732B346C84006A75AF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A53D722B346C84006A75AF /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +51,9 @@
 		61786C542B2F6C1200589E44 /* ExerciseView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView2.swift; sourceTree = "<group>"; };
 		61786C562B30567900589E44 /* WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListView.swift; sourceTree = "<group>"; };
 		61786C582B30B1BD00589E44 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		617EA6952B402304003C6585 /* StartedWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedWorkoutView.swift; sourceTree = "<group>"; };
+		6192A5E32B3F59450097F07F /* StartedWorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedWorkoutsView.swift; sourceTree = "<group>"; };
+		6192A5E52B3F675C0097F07F /* StartWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutView.swift; sourceTree = "<group>"; };
 		61A53D722B346C84006A75AF /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +120,9 @@
 				612347242B3C7B1C00CB2958 /* SavedWorkoutView.swift */,
 				612347262B3C9B5900CB2958 /* WorkoutPickerView.swift */,
 				615D42F32B3DB7E4003C15A4 /* TimerView.swift */,
+				6192A5E32B3F59450097F07F /* StartedWorkoutsView.swift */,
+				6192A5E52B3F675C0097F07F /* StartWorkoutView.swift */,
+				617EA6952B402304003C6585 /* StartedWorkoutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,6 +209,8 @@
 			files = (
 				612347232B3C722A00CB2958 /* AddWorkoutView.swift in Sources */,
 				61786C532B2F29FE00589E44 /* ExerciseView.swift in Sources */,
+				6192A5E62B3F675C0097F07F /* StartWorkoutView.swift in Sources */,
+				6192A5E42B3F59450097F07F /* StartedWorkoutsView.swift in Sources */,
 				186379432B3089F900A1E74E /* NinjaAPI.swift in Sources */,
 				612347252B3C7B1C00CB2958 /* SavedWorkoutView.swift in Sources */,
 				61786C592B30B1BD00589E44 /* TestView.swift in Sources */,
@@ -212,6 +223,7 @@
 				180C7F8B2B33762C003760EF /* CoreDataManager.swift in Sources */,
 				61786C572B30567900589E44 /* WorkoutListView.swift in Sources */,
 				61786C4B2B2F134400589E44 /* HomeScreen.swift in Sources */,
+				617EA6962B402304003C6585 /* StartedWorkoutView.swift in Sources */,
 				61786C512B2F29EE00589E44 /* WorkoutView.swift in Sources */,
 				186379462B308D8E00A1E74E /* WorkOutCoreData.xcdatamodeld in Sources */,
 				61786C552B2F6C1200589E44 /* ExerciseView2.swift in Sources */,

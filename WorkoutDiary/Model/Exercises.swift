@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct Workouts: Hashable, Equatable, Identifiable {
+    var id: UUID
+    var date: Date
+    var workout: Workout
+}
+
 struct Workout: Hashable, Equatable, Identifiable {
     var id: UUID
     var workoutName: String

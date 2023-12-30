@@ -13,6 +13,11 @@ class ViewModel : ObservableObject {
     @Published var exercises = [Exercise]() //Array for saving the exercises for each api call.
     @Published var muscleGroups = [MuscleGroup]() //Array for Saving all exercises for each muscle group.
     @Published var savedWorkouts = [Workout]() //Array for storing our workouts with name and all corresponding data.
+    @Published var startedWorkouts = [Workouts]()
+    
+    var lastStartedWorkout: Workouts? {
+            startedWorkouts.last
+        }
     
     init() {
         getExercises(forMuscle: "biceps")

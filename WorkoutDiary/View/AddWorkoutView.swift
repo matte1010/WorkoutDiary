@@ -18,6 +18,8 @@ struct AddWorkoutView: View {
     @State private var selectedExercise: Exercise? = nil
     @State private var selectedExercises = Set<Exercise>()
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         NavigationView {
             Form {
@@ -85,6 +87,10 @@ struct AddWorkoutView: View {
                         selectedExercises = []
                         viewModel.saveWorkout(workout: workout)
                         workoutName = ""
+                        
+                        // Close the view after saving the workout
+                        presentationMode.wrappedValue.dismiss()
+                        
                     }
                 }
                 

@@ -18,7 +18,7 @@ struct HomeScreen: View {
                 Text("Workout")
             }
             .tag(1)
-            Text("Stats").tabItem {
+            StartedWorkoutsView(viewModel: viewModel).tabItem {
                 Image(systemName: "chart.bar")
                 Text("Statistics")
             }
