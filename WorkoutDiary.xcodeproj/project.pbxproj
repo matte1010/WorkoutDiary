@@ -13,6 +13,7 @@
 		612347232B3C722A00CB2958 /* AddWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612347222B3C722A00CB2958 /* AddWorkoutView.swift */; };
 		612347252B3C7B1C00CB2958 /* SavedWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612347242B3C7B1C00CB2958 /* SavedWorkoutView.swift */; };
 		612347272B3C9B5900CB2958 /* WorkoutPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612347262B3C9B5900CB2958 /* WorkoutPickerView.swift */; };
+		61330AED2B445FB50053802C /* TestView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61330AEC2B445FB50053802C /* TestView2.swift */; };
 		615D42F42B3DB7E4003C15A4 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615D42F32B3DB7E4003C15A4 /* TimerView.swift */; };
 		61786C3B2B2F0DFF00589E44 /* WorkoutDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61786C3A2B2F0DFF00589E44 /* WorkoutDiaryApp.swift */; };
 		61786C3D2B2F0DFF00589E44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61786C3C2B2F0DFF00589E44 /* ContentView.swift */; };
@@ -38,6 +39,7 @@
 		612347222B3C722A00CB2958 /* AddWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutView.swift; sourceTree = "<group>"; };
 		612347242B3C7B1C00CB2958 /* SavedWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedWorkoutView.swift; sourceTree = "<group>"; };
 		612347262B3C9B5900CB2958 /* WorkoutPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPickerView.swift; sourceTree = "<group>"; };
+		61330AEC2B445FB50053802C /* TestView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView2.swift; sourceTree = "<group>"; };
 		615D42F32B3DB7E4003C15A4 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		61786C372B2F0DFF00589E44 /* WorkoutDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61786C3A2B2F0DFF00589E44 /* WorkoutDiaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDiaryApp.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				6192A5E32B3F59450097F07F /* StartedWorkoutsView.swift */,
 				6192A5E52B3F675C0097F07F /* StartWorkoutView.swift */,
 				617EA6952B402304003C6585 /* StartedWorkoutView.swift */,
+				61330AEC2B445FB50053802C /* TestView2.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				612347272B3C9B5900CB2958 /* WorkoutPickerView.swift in Sources */,
 				615D42F42B3DB7E4003C15A4 /* TimerView.swift in Sources */,
 				61786C4D2B2F139E00589E44 /* Exercises.swift in Sources */,
+				61330AED2B445FB50053802C /* TestView2.swift in Sources */,
 				61786C3B2B2F0DFF00589E44 /* WorkoutDiaryApp.swift in Sources */,
 				61A53D732B346C84006A75AF /* ViewModel.swift in Sources */,
 				180C7F8B2B33762C003760EF /* CoreDataManager.swift in Sources */,
