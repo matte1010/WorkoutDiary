@@ -16,12 +16,17 @@ class ViewModel : ObservableObject {
     @Published var startedWorkouts = [Workouts]()
     
     var lastStartedWorkout: Workouts? {
-            startedWorkouts.last
-        }
+        startedWorkouts.last
+    }
     
     init() {
         getExercises(forMuscle: "biceps")
         getExercises(forMuscle: "chest")
+        //getExercises(forMuscle: "lats")
+        //getExercises(forMuscle: "quadriceps")
+        //getExercises(forMuscle: "glutes")
+        //getExercises(forMuscle: "forearms")
+        //getExercises(forMuscle: "calves")
         //savedWorkouts = []
     }
     
@@ -56,6 +61,13 @@ class ViewModel : ObservableObject {
         savedWorkouts.append(workout)
         print(savedWorkouts)
 
+    }
+    
+    func updateWorkout(workout: Workout) {
+        if let index = startedWorkouts.firstIndex(where: { $0.workout.id == workout.id }) {
+            startedWorkouts[index].workout = workout
+            print("Workout updated in ViewModel:", workout)
+        }
     }
     
 }

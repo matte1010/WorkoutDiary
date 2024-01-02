@@ -8,45 +8,53 @@
 import SwiftUI
 
 struct StartedWorkoutsView: View {
-    
     @ObservedObject var viewModel: ViewModel
-    
+    @State private var selectedWorkout: Workouts?
+    @State private var isPresentingStartWorkout = false
+
     var body: some View {
-
         NavigationView {
+                    List {
+                        ForEach(viewModel.startedWorkouts) { startedWorkout in
+                            Section(header: Text("Started on \(startedWorkout.date)")) {
+                                Button(action: {
+                                    selectedWorkout = startedWorkout
+                                    isPresentingStartWorkout = true
+                                }) {
+                                    Text(startedWorkout.workout.workoutName)
+                                        .font(.headline)
+                                }
 
-            List {
-
-                ForEach(viewModel.startedWorkouts) { startedWorkout in
-
-                    Section(header: Text("Started on \(startedWorkout.date)")) {
-
-                        Text(startedWorkout.workout.workoutName)
-                            .font(.headline)
-
-                        ForEach(startedWorkout.workout.exercises) { exercise in
-
-                            HStack {
-                                Text(exercise.name)
-                                Spacer()
-                                Text("\(exercise.sets.count) sets")
+                                ForEach(startedWorkout.workout.exercises) { exercise in
+                                    HStack {
+                                        Text(exercise.name)
+                                        Spacer()
+                                        Text("\(exercise.sets.count) sets")
+                                    }
+                                }
                             }
-
                         }
-
                     }
-
-                }
-                
-            }
             .navigationTitle("Started Workouts")
-            
+            .sheet(item: $selectedWorkout) { workout in
+                if let index = viewModel.startedWorkouts.firstIndex(where: { $0.id == workout.id }) {
+                    StartedWorkoutView(viewModel: viewModel, selectedWorkout: $viewModel.startedWorkouts[index], isPresented: $isPresentingStartWorkout)
+                }
+            }
         }
-        
     }
-    
 }
 
-#Preview {
-    StartedWorkoutsView(viewModel: ViewModel())
+
+
+struct StartedWorkoutsView_Previews: PreviewProvider {
+    static var previews: some View {
+        let viewModel = ViewModel()
+        viewModel.startedWorkouts = [
+            Workouts(id: UUID(), date: Date(), workout: Workout(id: UUID(), workoutName: "Push", exercises: [Exercise(id: UUID(), name: "bench press", sets: [ExerciseSet(id: UUID(), weight: "", reps: "")])]))
+        ]
+
+        return StartedWorkoutsView(viewModel: viewModel)
+    }
 }
+
