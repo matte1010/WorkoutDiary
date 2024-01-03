@@ -28,22 +28,23 @@ struct StartWorkoutView: View {
 
     var body: some View {
         VStack {
-            List {
-                ForEach(workout.exercises) { exercise in
-                    Section(header: Text(exercise.name)) {
-                        Stepper("Sets \(exercise.sets.count)", onIncrement: {
-                            updateSets(for: exercise, to: exercise.sets.count + 1)
-                        }, onDecrement: {
-                            if exercise.sets.count > 0 {
-                                updateSets(for: exercise, to: exercise.sets.count - 1)
-                            }
-                        })
-                    }
-                }
-            }
+           List {
+               ForEach(workout.exercises) { exercise in
+                   Section(header: Text(exercise.name)) {
+                       Stepper("Sets \(exercise.sets.count)", onIncrement: {
+                           updateSets(for: exercise, to: exercise.sets.count + 1)
+                       }, onDecrement: {
+                           if exercise.sets.count > 0 {
+                               updateSets(for: exercise, to: exercise.sets.count - 1)
+                           }
+                       })
+                   }
+               }
+           }
+
             Button(action: {
                 let startedWorkout = Workouts(id: UUID(), date: Date(), workout: workout)
-                viewModel.startedWorkouts.append(startedWorkout)
+                viewModel.startWorkout(workout: startedWorkout)
                 isPresentingStartWorkout.toggle()
             }) {
                 Text("Start Workout")
@@ -53,8 +54,21 @@ struct StartWorkoutView: View {
                     .cornerRadius(10)
             }
             .fullScreenCover(isPresented: $isPresentingStartWorkout) {
-                // Show workout view
-                StartedWorkoutView(viewModel: viewModel, selectedWorkout: $viewModel.startedWorkouts.last!, isPresented: $isPresentingStartWorkout)
+
+                if let workout = viewModel.inProgressWorkout {
+                    
+                    StartedWorkoutView(
+                        viewModel: viewModel,
+                        
+                        // Typecast to non-optional binding
+                        selectedWorkout: Binding(
+                            get:{ workout },
+                            set: { viewModel.inProgressWorkout = $0 }
+                        ) as Binding<Workouts>,
+                        
+                        isPresented: $isPresentingStartWorkout
+                    )
+                }
             }
         }
         .navigationTitle(workout.workoutName)

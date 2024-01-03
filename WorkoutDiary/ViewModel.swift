@@ -14,6 +14,7 @@ class ViewModel : ObservableObject {
     @Published var muscleGroups = [MuscleGroup]() //Array for Saving all exercises for each muscle group.
     @Published var savedWorkouts = [Workout]() //Array for storing our workouts with name and all corresponding data.
     @Published var startedWorkouts = [Workouts]()
+    @Published var inProgressWorkout: Workouts?
     
     var lastStartedWorkout: Workouts? {
         startedWorkouts.last
@@ -69,5 +70,23 @@ class ViewModel : ObservableObject {
             print("Workout updated in ViewModel:", workout)
         }
     }
+    
+    func startWorkout(workout: Workouts) {
+            inProgressWorkout = workout
+        }
+
+        func finishWorkout(workout: Workout) {
+
+            if let current = inProgressWorkout, current.workout.id == workout.id {
+                
+                // Append copy to history to avoid mutation
+                let finishedWorkout = Workouts(id: current.id,
+                                               date: current.date,
+                                               workout: current.workout)
+                
+                startedWorkouts.append(finishedWorkout)
+                inProgressWorkout = nil
+            }
+        }
     
 }

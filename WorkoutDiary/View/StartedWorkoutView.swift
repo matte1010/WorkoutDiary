@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct StartedWorkoutView: View {
+
     @ObservedObject var viewModel: ViewModel
+   
     @Binding var selectedWorkout: Workouts
+
     @Binding var isPresented: Bool
 
     var body: some View {
@@ -23,52 +26,78 @@ struct StartedWorkoutView: View {
                             ForEach(exercise.sets.indices, id: \.self) { setIndex in
                                 HStack {
                                     TextField("Weight", text: Binding(
-                                        get: { exercise.sets[setIndex].weight },
+                                        get: {
+                                            exercise.sets[setIndex].weight
+                                        },
                                         set: {
                                             selectedWorkout.workout.exercises[exerciseIndex].sets[setIndex].weight = $0
                                         }
                                     ))
+                                    .keyboardType(.numberPad)
                                     Text("kg")
+                                    
                                     TextField("Reps", text: Binding(
-                                        get: { exercise.sets[setIndex].reps },
+                                        get: {
+                                            exercise.sets[setIndex].reps
+                                        },
                                         set: {
                                             selectedWorkout.workout.exercises[exerciseIndex].sets[setIndex].reps = $0
                                         }
                                     ))
+                                    .keyboardType(.numberPad)
                                     Text("reps")
                                 }
+                                
                                 .swipeActions {
                                     Button("Delete", role: .destructive) {
                                         selectedWorkout.workout.exercises[exerciseIndex].sets.remove(at: setIndex)
                                     }
                                 }
+                                
                             }
 
                             Button("Add Set") {
                                 selectedWorkout.workout.exercises[exerciseIndex].sets.append(ExerciseSet(id: UUID(), weight: "", reps: ""))
                             }
+                            
                         }
+                        
                     }
                 }
+                
                 .navigationTitle("Workout")
+                
             }
+            
             .navigationBarItems(trailing:
+                
                 Button("Done") {
-                    isPresented = false
+                   isPresented = false
                 }
+                
             )
+            
         }
+        
         .onDisappear {
-            // Save changes to the ViewModel when the view disappears
-            viewModel.updateWorkout(workout: selectedWorkout.workout)
+            viewModel.finishWorkout(workout: selectedWorkout.workout)
         }
+        .scrollDismissesKeyboard(.immediately)
     }
 }
+
 
 struct StartedWorkoutView_Previews: PreviewProvider {
-    static var previews: some View {
-        StartedWorkoutView(viewModel: ViewModel(), selectedWorkout: .constant(Workouts(id: UUID(), date: Date(), workout: Workout(id: UUID(), workoutName: "Push", exercises: [Exercise(id: UUID(), name: "bench press", sets: [ExerciseSet(id: UUID(), weight: "", reps: "")]), Exercise(id: UUID(), name: "Dips", sets: [ExerciseSet(id: UUID(), weight: "", reps: "")])]))), isPresented: .constant(false))
-    }
-}
 
+    static var previews: some View {
+        StartedWorkoutView(
+           viewModel: ViewModel(),
+           selectedWorkout: .constant(
+            Workouts(id: UUID(), date: Date(), workout: Workout(id: UUID(), workoutName: "", exercises: [Exercise(id: UUID(), name: "", sets: [ExerciseSet(id: UUID(), weight: "", reps: "")])]))
+           ),
+           isPresented: .constant(false)
+        )
+    }
+
+}
 
