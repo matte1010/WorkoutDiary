@@ -16,17 +16,25 @@ struct StartedWorkoutsView: View {
 
     var body: some View {
         NavigationView {
-               
             List {
                 ForEach(viewModel.startedWorkouts) { startedWorkout in
                     Section(header: Text("Started on \(startedWorkout.date)")) {
-                    
-                        Button(action: {
-                            selectedWorkout = startedWorkout
-                            isPresentingStartWorkout = true
-                        }) {
+                        HStack {
                             Text(startedWorkout.workout.workoutName)
                                 .font(.headline)
+                                .foregroundStyle(Color.blue)
+                                .onTapGesture {
+                                    selectedWorkout = startedWorkout
+                                    isPresentingStartWorkout = true
+                                }
+
+                            Spacer()
+
+                            Image(systemName: "trash")
+                                .foregroundColor(.red)
+                                .onTapGesture {
+                                    deleteWorkout(startedWorkout)
+                                }
                         }
 
                         ForEach(startedWorkout.workout.exercises) { exercise in
@@ -36,13 +44,10 @@ struct StartedWorkoutsView: View {
                                 Text("\(exercise.sets.count) sets")
                             }
                         }
-                        
                     }
                 }
             }
-            
             .navigationTitle("Started Workouts")
-            
             .sheet(item: $selectedWorkout) { workout in
                 if let index = viewModel.startedWorkouts.firstIndex(where: { $0.id == workout.id }) {
                     StartedWorkoutView(
@@ -52,11 +57,15 @@ struct StartedWorkoutsView: View {
                     )
                 }
             }
-            
         }
     }
-    
+
+    // Function to delete a workout
+    private func deleteWorkout(_ workout: Workouts) {
+        viewModel.deleteWorkout(workout)
+    }
 }
+
 
 
 struct StartedWorkoutsView_Previews: PreviewProvider {

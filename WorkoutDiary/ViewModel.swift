@@ -89,4 +89,11 @@ class ViewModel : ObservableObject {
             }
         }
     
+    func deleteWorkout(_ workout: Workouts) {
+        if let index = startedWorkouts.firstIndex(where: { $0.id == workout.id }) {
+            startedWorkouts.remove(at: index)
+        }
+    }
+
+    
 }
