@@ -14,6 +14,8 @@ struct StartedWorkoutView: View {
     @Binding var selectedWorkout: Workouts
 
     @Binding var isPresented: Bool
+    
+    @State private var isSliderViewPresented: Bool = false
 
     var body: some View {
         NavigationView {
@@ -61,11 +63,13 @@ struct StartedWorkoutView: View {
                             }
                             
                         }
-                        
+                    }
+                    Section() {
+                        IntensitySelectionView(workout: $selectedWorkout.workout)
                     }
                 }
                 
-                .navigationTitle("Workout")
+                .navigationTitle("\(selectedWorkout.workout.workoutName)")
                 
             }
             
@@ -93,7 +97,7 @@ struct StartedWorkoutView_Previews: PreviewProvider {
         StartedWorkoutView(
            viewModel: ViewModel(),
            selectedWorkout: .constant(
-            Workouts(id: UUID(), date: Date(), workout: Workout(id: UUID(), workoutName: "", exercises: [Exercise(id: UUID(), name: "", sets: [ExerciseSet(id: UUID(), weight: "", reps: "")])]))
+            Workouts(id: UUID(), date: Date(), workout: Workout(id: UUID(), workoutName: "", workoutRating: 1.0, exercises: [Exercise(id: UUID(), name: "", sets: [ExerciseSet(id: UUID(), weight: "", reps: "")])]))
            ),
            isPresented: .constant(false)
         )

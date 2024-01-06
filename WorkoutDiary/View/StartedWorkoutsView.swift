@@ -75,7 +75,7 @@ struct StartedWorkoutsView_Previews: PreviewProvider {
         let viewModel = ViewModel()
         
         viewModel.startedWorkouts = [
-            Workouts(id: UUID(), date: Date(), workout: Workout(id: UUID(), workoutName: "Push", exercises: [Exercise(id: UUID(), name: "bench press", sets: [ExerciseSet(id: UUID(), weight: "", reps: "")])]))
+            Workouts(id: UUID(), date: Date(), workout: Workout(id: UUID(), workoutName: "Push", workoutRating: 1.0, exercises: [Exercise(id: UUID(), name: "bench press", sets: [ExerciseSet(id: UUID(), weight: "", reps: "")])]))
         ]
 
         return StartedWorkoutsView(viewModel: viewModel)

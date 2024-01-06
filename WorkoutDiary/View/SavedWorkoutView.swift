@@ -95,7 +95,7 @@ struct SavedWorkoutView_Previews: PreviewProvider {
         // Create some sample workout data for preview
         let sampleWorkout = Workout(
             id: UUID(),
-            workoutName: "Sample Workout",
+            workoutName: "Sample Workout", workoutRating: 1.0,
             exercises: [
                 Exercise(
                     id: UUID(),

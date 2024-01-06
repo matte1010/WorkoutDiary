@@ -27,14 +27,16 @@ struct WorkoutPickerView: View {
                                 }
                         }
                     }
+                    .onDelete(perform: deleteWorkouts)
                 }
                 .background(LinearGradient(colors: [.blue, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all))
                 .scrollContentBackground(.hidden)
             }
             .navigationTitle("Pick a Workout")
-            .navigationBarItems(trailing:
-                HStack {
+            .navigationBarItems(
+                leading: EditButton(),
+                trailing: HStack {
                     Button(action: {
                         isAddingWorkout = true
                     }) {
@@ -46,6 +48,10 @@ struct WorkoutPickerView: View {
                 }
             )
         }
+    }
+
+    func deleteWorkouts(at offsets: IndexSet) {
+        viewModel.savedWorkouts.remove(atOffsets: offsets)
     }
 }
 

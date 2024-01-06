@@ -30,6 +30,8 @@
 		6192A5E42B3F59450097F07F /* StartedWorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192A5E32B3F59450097F07F /* StartedWorkoutsView.swift */; };
 		6192A5E62B3F675C0097F07F /* StartWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192A5E52B3F675C0097F07F /* StartWorkoutView.swift */; };
 		61A53D732B346C84006A75AF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A53D722B346C84006A75AF /* ViewModel.swift */; };
+		61C6CA8F2B49AC240028DB26 /* IntensitySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6CA8E2B49AC240028DB26 /* IntensitySelectionView.swift */; };
+		61C6CA912B4A04240028DB26 /* ReorderExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6CA902B4A04240028DB26 /* ReorderExerciseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		6192A5E32B3F59450097F07F /* StartedWorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedWorkoutsView.swift; sourceTree = "<group>"; };
 		6192A5E52B3F675C0097F07F /* StartWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWorkoutView.swift; sourceTree = "<group>"; };
 		61A53D722B346C84006A75AF /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		61C6CA8E2B49AC240028DB26 /* IntensitySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensitySelectionView.swift; sourceTree = "<group>"; };
+		61C6CA902B4A04240028DB26 /* ReorderExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReorderExerciseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,8 @@
 				6192A5E52B3F675C0097F07F /* StartWorkoutView.swift */,
 				617EA6952B402304003C6585 /* StartedWorkoutView.swift */,
 				61330AEC2B445FB50053802C /* TestView2.swift */,
+				61C6CA8E2B49AC240028DB26 /* IntensitySelectionView.swift */,
+				61C6CA902B4A04240028DB26 /* ReorderExerciseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +221,7 @@
 				6192A5E62B3F675C0097F07F /* StartWorkoutView.swift in Sources */,
 				6192A5E42B3F59450097F07F /* StartedWorkoutsView.swift in Sources */,
 				186379432B3089F900A1E74E /* NinjaAPI.swift in Sources */,
+				61C6CA912B4A04240028DB26 /* ReorderExerciseView.swift in Sources */,
 				612347252B3C7B1C00CB2958 /* SavedWorkoutView.swift in Sources */,
 				61786C592B30B1BD00589E44 /* TestView.swift in Sources */,
 				61786C3D2B2F0DFF00589E44 /* ContentView.swift in Sources */,
@@ -223,6 +230,7 @@
 				61786C4D2B2F139E00589E44 /* Exercises.swift in Sources */,
 				61330AED2B445FB50053802C /* TestView2.swift in Sources */,
 				61786C3B2B2F0DFF00589E44 /* WorkoutDiaryApp.swift in Sources */,
+				61C6CA8F2B49AC240028DB26 /* IntensitySelectionView.swift in Sources */,
 				61A53D732B346C84006A75AF /* ViewModel.swift in Sources */,
 				180C7F8B2B33762C003760EF /* CoreDataManager.swift in Sources */,
 				61786C572B30567900589E44 /* WorkoutListView.swift in Sources */,

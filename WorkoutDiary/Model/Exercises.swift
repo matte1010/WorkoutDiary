@@ -16,6 +16,7 @@ struct Workouts: Hashable, Equatable, Identifiable {
 struct Workout: Hashable, Equatable, Identifiable {
     var id: UUID
     var workoutName: String
+    var workoutRating: Double
     var exercises: [Exercise]
 }
 

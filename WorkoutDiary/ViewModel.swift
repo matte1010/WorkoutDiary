@@ -28,7 +28,7 @@ class ViewModel : ObservableObject {
         //getExercises(forMuscle: "glutes")
         //getExercises(forMuscle: "forearms")
         //getExercises(forMuscle: "calves")
-        //savedWorkouts = []
+        savedWorkouts = [Workout(id: UUID(), workoutName: "Push", workoutRating: 1.0, exercises: [Exercise(id: UUID(), name: "Barbell Bench Press - Medium Grip", sets: [ExerciseSet(id: UUID(), weight: "", reps: "")]), Exercise(id: UUID(), name: "Pushups", sets: [ExerciseSet(id: UUID(), weight: "", reps: "")])]), Workout(id: UUID(), workoutName: "Biceps Workout", workoutRating: 1.0, exercises: [Exercise(id: UUID(), name: "Barbell Curl", sets: [ExerciseSet(id: UUID(), weight: "", reps: "")]), Exercise(id: UUID(), name: "Zottman Curl", sets: [ExerciseSet(id: UUID(), weight: "", reps: "")])])]
     }
     
     //Send in a defined muscle to get exercises

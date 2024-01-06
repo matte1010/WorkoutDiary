@@ -82,7 +82,7 @@ struct AddWorkoutView: View {
                 
                 Section {
                     Button("Save Workout") {
-                        let workout = Workout(id: UUID(), workoutName: self.workoutName, exercises: Array(self.selectedExercises))
+                        let workout = Workout(id: UUID(), workoutName: self.workoutName, workoutRating: 1.0, exercises: Array(self.selectedExercises))
                         // Save workout
                         selectedExercises = []
                         viewModel.saveWorkout(workout: workout)
