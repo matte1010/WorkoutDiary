@@ -47,6 +47,9 @@ struct StartedWorkoutsView: View {
                     }
                 }
             }
+            .background(LinearGradient(colors: [.blue, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
+            .edgesIgnoringSafeArea(.all))
+            .scrollContentBackground(.hidden)
             .navigationTitle("Started Workouts")
             .sheet(item: $selectedWorkout) { workout in
                 if let index = viewModel.startedWorkouts.firstIndex(where: { $0.id == workout.id }) {

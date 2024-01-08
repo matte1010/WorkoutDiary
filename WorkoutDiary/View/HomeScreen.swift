@@ -18,14 +18,14 @@ struct HomeScreen: View {
                 Text("Workout")
             }
             .tag(1)
-            StartedWorkoutsView(viewModel: viewModel).tabItem {
+            StatisticView().tabItem {
                 Image(systemName: "chart.bar")
                 Text("Statistics")
             }
             .tag(2)
-            WorkoutListView(viewModel: viewModel).tabItem {
+            StartedWorkoutsView(viewModel: viewModel).tabItem {
                 Image(systemName: "list.clipboard").font(.title)
-                Text("Exercises")
+                Text("Workouts")
                     .font(.title)
             }
             .tag(3)

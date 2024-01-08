@@ -32,6 +32,8 @@
 		61A53D732B346C84006A75AF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A53D722B346C84006A75AF /* ViewModel.swift */; };
 		61C6CA8F2B49AC240028DB26 /* IntensitySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6CA8E2B49AC240028DB26 /* IntensitySelectionView.swift */; };
 		61C6CA912B4A04240028DB26 /* ReorderExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6CA902B4A04240028DB26 /* ReorderExerciseView.swift */; };
+		61FB6C772B4C62D100646623 /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FB6C762B4C62D100646623 /* StatsViewModel.swift */; };
+		61FB6C792B4C630600646623 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FB6C782B4C630600646623 /* StatisticView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		61A53D722B346C84006A75AF /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		61C6CA8E2B49AC240028DB26 /* IntensitySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensitySelectionView.swift; sourceTree = "<group>"; };
 		61C6CA902B4A04240028DB26 /* ReorderExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReorderExerciseView.swift; sourceTree = "<group>"; };
+		61FB6C762B4C62D100646623 /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
+		61FB6C782B4C630600646623 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 				61786C3E2B2F0E0200589E44 /* Assets.xcassets */,
 				61786C402B2F0E0200589E44 /* Preview Content */,
 				61A53D722B346C84006A75AF /* ViewModel.swift */,
+				61FB6C762B4C62D100646623 /* StatsViewModel.swift */,
 			);
 			path = WorkoutDiary;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 				61330AEC2B445FB50053802C /* TestView2.swift */,
 				61C6CA8E2B49AC240028DB26 /* IntensitySelectionView.swift */,
 				61C6CA902B4A04240028DB26 /* ReorderExerciseView.swift */,
+				61FB6C782B4C630600646623 /* StatisticView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,6 +232,7 @@
 				61786C592B30B1BD00589E44 /* TestView.swift in Sources */,
 				61786C3D2B2F0DFF00589E44 /* ContentView.swift in Sources */,
 				612347272B3C9B5900CB2958 /* WorkoutPickerView.swift in Sources */,
+				61FB6C772B4C62D100646623 /* StatsViewModel.swift in Sources */,
 				615D42F42B3DB7E4003C15A4 /* TimerView.swift in Sources */,
 				61786C4D2B2F139E00589E44 /* Exercises.swift in Sources */,
 				61330AED2B445FB50053802C /* TestView2.swift in Sources */,
@@ -236,6 +243,7 @@
 				61786C572B30567900589E44 /* WorkoutListView.swift in Sources */,
 				61786C4B2B2F134400589E44 /* HomeScreen.swift in Sources */,
 				617EA6962B402304003C6585 /* StartedWorkoutView.swift in Sources */,
+				61FB6C792B4C630600646623 /* StatisticView.swift in Sources */,
 				61786C512B2F29EE00589E44 /* WorkoutView.swift in Sources */,
 				186379462B308D8E00A1E74E /* WorkOutCoreData.xcdatamodeld in Sources */,
 				61786C552B2F6C1200589E44 /* ExerciseView2.swift in Sources */,
